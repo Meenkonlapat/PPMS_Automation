@@ -77,11 +77,11 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">200,144.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,52</av:Size>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">300,195.5 300,225.5 310,225.5 310,316.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:PathExists DisplayName="Path Exists" Exists="[BollPathExist]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_config(&quot;strFilePathInput&quot;).ToString]" PathType="Folder">
+      <ui:PathExists DisplayName="Path Exists" Exists="[BollPathExist]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_config(&quot;strFilePathInput&quot;).ToString]" PathType="Folder">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -89,26 +89,26 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:PathExists>
       <FlowStep.Next>
-        <FlowDecision x:Name="__ReferenceID1" Condition="[BollPathExist]" DisplayName="Check Path Exist" sap:VirtualizedContainerService.HintSize="91,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+        <FlowDecision x:Name="__ReferenceID0" Condition="[BollPathExist]" DisplayName="Check Path Exist" sap:VirtualizedContainerService.HintSize="92,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <av:Point x:Key="ShapeLocation">264,316.5</av:Point>
-              <av:Size x:Key="ShapeSize">91,87</av:Size>
+              <av:Size x:Key="ShapeSize">92,87</av:Size>
               <av:PointCollection x:Key="TrueConnector">264,360 200,360</av:PointCollection>
               <av:PointCollection x:Key="FalseConnector">356,360 386,360 386,350 420,350</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <FlowDecision.True>
-            <FlowStep x:Name="__ReferenceID2">
+            <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">0,327</av:Point>
-                  <av:Size x:Key="ShapeSize">200,68</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">100,395 100,457</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,66</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">100,393 100,457</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Move File to Robotspace" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Move File to Robotspace" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ui:GenericValue" Name="strFileName" />
                   <Variable x:TypeArguments="s:String[]" Name="strArrFiles" />
@@ -126,14 +126,14 @@
                     <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_config("strFilePathInput").ToString)]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="412,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get FileInput Success&quot;]" />
-                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,582" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[strArrFiles]">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="412,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get FileInput Success&quot;]" />
+                <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,579" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[strArrFiles]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="x:Object">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,447" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,445" sap2010:WorkflowViewState.IdRef="Sequence_1">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:Int32" Name="intFileNameIndex" />
                         </Sequence.Variables>
@@ -159,7 +159,7 @@
                           </Assign.Value>
                         </Assign>
                         <ui:MoveFile ContinueOnError="{x:Null}" Destination="[in_config(&quot;strFilePathRobot&quot;).ToString]" DisplayName="Move File to Robot Workspace" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="False" Path="[in_config(&quot;strFilePathInput&quot;).ToString + strFileName]" />
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;MoveFile To Robot Success&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;MoveFile To Robot Success&quot;]" />
                       </Sequence>
                     </ActivityAction>
                   </ui:ForEach.Body>
@@ -170,10 +170,10 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">0,457</av:Point>
-                      <av:Size x:Key="ShapeSize">200,68</av:Size>
+                      <av:Size x:Key="ShapeSize">200,66</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Check File" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence DisplayName="Check File" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="s:String[]" Name="strArrRobotFiles" />
                     </Sequence.Variables>
@@ -182,14 +182,14 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:PathExists DisplayName="Path Exists" Exists="[BollPathExist]" sap:VirtualizedContainerService.HintSize="1542,90" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_config(&quot;strFilePathRobot&quot;).ToString]" PathType="Folder">
+                    <ui:PathExists DisplayName="Access Path" Exists="[BollPathExist]" sap:VirtualizedContainerService.HintSize="412,89" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[in_config(&quot;strFilePathRobot&quot;).ToString]" PathType="Folder">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:PathExists>
-                    <Assign sap:VirtualizedContainerService.HintSize="1542,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                       <Assign.To>
                         <OutArgument x:TypeArguments="s:String[]">[strArrRobotFiles]</OutArgument>
                       </Assign.To>
@@ -197,7 +197,7 @@
                         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_config("strFilePathRobot").ToString)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign DisplayName="Assign" sap:VirtualizedContainerService.HintSize="1542,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign DisplayName="Assign" sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_9">
                       <Assign.To>
                         <OutArgument x:TypeArguments="scg:List(x:String)">[ListSOnumber]</OutArgument>
                       </Assign.To>
@@ -205,13 +205,13 @@
                         <InArgument x:TypeArguments="scg:List(x:String)">[New List(of String)]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1542,2020" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[strArrRobotFiles]">
+                    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="Checking File in Order" sap:VirtualizedContainerService.HintSize="412,838" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[strArrRobotFiles]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="x:Object">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1506,1885" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,704" sap2010:WorkflowViewState.IdRef="Sequence_6">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="ui:GenericValue" Name="intRobotFileNameIndex" />
                               <Variable x:TypeArguments="ui:GenericValue" Name="strRobotFileName" />
@@ -222,7 +222,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="1464,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="ui:GenericValue">[intRobotFileNameIndex]</OutArgument>
                               </Assign.To>
@@ -230,8 +230,8 @@
                                 <InArgument x:TypeArguments="ui:GenericValue">[item.ToString.LastIndexOf("\")]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1464,93" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[intRobotFileNameIndex]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="1464,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[intRobotFileNameIndex]" />
+                            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="ui:GenericValue">[strRobotFileName]</OutArgument>
                               </Assign.To>
@@ -239,11 +239,17 @@
                                 <InArgument x:TypeArguments="ui:GenericValue">[item.ToString.Substring(intRobotFileNameIndex + 1)]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1464,93" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;File Name : &quot; + strRobotFileName]" />
-                            <ui:IsMatch BuilderPattern=".xlsm$" DisplayName="Find Excel Type" sap:VirtualizedContainerService.HintSize="1464,59" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[strRobotFileName.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;.xlsm&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:1,&quot;OperationID&quot;:&quot;END&quot;,&quot;OperationName&quot;:&quot;Ends with&quot;,&quot;OperationValue&quot;:&quot;$&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern=".xlsm$" RegexOption="IgnoreCase" Result="[checkType]" />
-                            <If Condition="[checkType.Equals(True)]" sap:VirtualizedContainerService.HintSize="1464,1228" sap2010:WorkflowViewState.IdRef="If_2">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;File Name : &quot; + strRobotFileName]" />
+                            <ui:IsMatch BuilderPattern=".xlsm$" DisplayName="Find Excel Type" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[strRobotFileName.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;.xlsm&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:1,&quot;OperationID&quot;:&quot;END&quot;,&quot;OperationName&quot;:&quot;Ends with&quot;,&quot;OperationValue&quot;:&quot;$&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern=".xlsm$" RegexOption="IgnoreCase" Result="[checkType]" />
+                            <If Condition="[checkType.Equals(True)]" DisplayName="Checking File Type" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <Sequence sap:VirtualizedContainerService.HintSize="941,1078" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                <Sequence sap:VirtualizedContainerService.HintSize="376,373" sap2010:WorkflowViewState.IdRef="Sequence_5">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:Boolean" Name="checkSO" />
                                   </Sequence.Variables>
@@ -252,11 +258,17 @@
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="899,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Check Type Excel Success&quot;]" />
-                                  <ui:IsMatch BuilderPattern="^\d{7}" DisplayName="Find SO Number Format" sap:VirtualizedContainerService.HintSize="899,59" sap2010:WorkflowViewState.IdRef="IsMatch_2" Input="[strRobotFileName.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ST&quot;,&quot;OperationName&quot;:&quot;Starts with&quot;,&quot;OperationValue&quot;:&quot;^&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:1,&quot;OperationID&quot;:&quot;DIG&quot;,&quot;OperationName&quot;:&quot;Digit&quot;,&quot;OperationValue&quot;:&quot;\\d&quot;,&quot;QuantifierFirstValue&quot;:&quot;7&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="^\d{7}" RegexOption="IgnoreCase" Result="[checkSO]" />
-                                  <If Condition="[checkSO.Equals(True)]" sap:VirtualizedContainerService.HintSize="899,754" sap2010:WorkflowViewState.IdRef="If_1">
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Check Type Excel Success&quot;]" />
+                                  <ui:IsMatch BuilderPattern="^\d*" DisplayName="Find SO Number Format" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="IsMatch_2" Input="[strRobotFileName.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ST&quot;,&quot;OperationName&quot;:&quot;Starts with&quot;,&quot;OperationValue&quot;:&quot;^&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:1,&quot;OperationID&quot;:&quot;DIG&quot;,&quot;OperationName&quot;:&quot;Digit&quot;,&quot;OperationValue&quot;:&quot;\\d&quot;,&quot;QuantifierFirstValue&quot;:&quot;*&quot;,&quot;QuantifierID&quot;:&quot;ANY&quot;,&quot;QuantifierName&quot;:&quot;Any (0 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="^\d*" RegexOption="IgnoreCase" Result="[checkSO]" />
+                                  <If Condition="[checkSO.Equals(True)]" DisplayName="Checking SONumber" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_1">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
                                     <If.Then>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="376,573" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                      <Sequence sap:VirtualizedContainerService.HintSize="376,570" sap2010:WorkflowViewState.IdRef="Sequence_4">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="SOnumberCollectionMatch" />
                                         </Sequence.Variables>
@@ -265,8 +277,8 @@
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:Matches BuilderPattern="^(\d{7})" DisplayName="Get Project SO. number" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[strRobotFileName]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ST&quot;,&quot;OperationName&quot;:&quot;Starts with&quot;,&quot;OperationValue&quot;:&quot;^&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:1,&quot;OperationID&quot;:&quot;DIG&quot;,&quot;OperationName&quot;:&quot;Digit&quot;,&quot;OperationValue&quot;:&quot;\\d&quot;,&quot;QuantifierFirstValue&quot;:&quot;7&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="^(\d{7})" RegexOption="IgnoreCase" Result="[SOnumberCollectionMatch]" />
-                                        <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="334,249" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[SOnumberCollectionMatch]">
+                                        <ui:Matches BuilderPattern="^(\d*)" DisplayName="Get Project SO. number" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[strRobotFileName]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ST&quot;,&quot;OperationName&quot;:&quot;Starts with&quot;,&quot;OperationValue&quot;:&quot;^&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null},{&quot;Index&quot;:1,&quot;OperationID&quot;:&quot;DIG&quot;,&quot;OperationName&quot;:&quot;Digit&quot;,&quot;OperationValue&quot;:&quot;\\d&quot;,&quot;QuantifierFirstValue&quot;:&quot;*&quot;,&quot;QuantifierID&quot;:&quot;ANY&quot;,&quot;QuantifierName&quot;:&quot;Any (0 or more)&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="^(\d*)" RegexOption="IgnoreCase" Result="[SOnumberCollectionMatch]" />
+                                        <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="334,248" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[SOnumberCollectionMatch]">
                                           <ui:ForEach.Body>
                                             <ActivityAction x:TypeArguments="x:Object">
                                               <ActivityAction.Argument>
@@ -283,11 +295,11 @@
                                             </ActivityAction>
                                           </ui:ForEach.Body>
                                         </ui:ForEach>
-                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Check SOnumber Success&quot;]" />
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Check SOnumber Success&quot;]" />
                                       </Sequence>
                                     </If.Then>
                                     <If.Else>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="478,604" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                      <Sequence sap:VirtualizedContainerService.HintSize="478,600" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="x:String" Name="Password" />
                                         </Sequence.Variables>
@@ -297,15 +309,15 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <ui:MoveFile ContinueOnError="{x:Null}" Destination="[in_config(&quot;strFilePathFailed&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="MoveFile_4" Overwrite="False" Path="[in_config(&quot;strFilePathRobot&quot;).ToString + &quot;\&quot; + strRobotFileName]" />
-                                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,317" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,315" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                                           <ui:CommentOut.Body>
-                                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,239" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
-                                              <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="SO number format failed" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" IsBodyHtml="False" IsDraft="False" Subject="Robot Error" To="[in_config(&quot;Email&quot;).ToString]">
+                                              <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="SO number format failed" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" IsBodyHtml="False" IsDraft="False" Subject="Robot Error" To="[in_config(&quot;Email&quot;).ToString]">
                                                 <ui:SendOutlookMail.Files>
                                                   <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                                                 </ui:SendOutlookMail.Files>
@@ -313,29 +325,29 @@
                                             </Sequence>
                                           </ui:CommentOut.Body>
                                         </ui:CommentOut>
-                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,93" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Move File to Failed Not Found So number&quot;]" />
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Move File to Failed Not Found So number&quot;]" />
                                       </Sequence>
                                     </If.Else>
                                   </If>
                                 </Sequence>
                               </If.Then>
                               <If.Else>
-                                <Sequence sap:VirtualizedContainerService.HintSize="478,471" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <Sequence sap:VirtualizedContainerService.HintSize="478,469" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <ui:MoveFile ContinueOnError="{x:Null}" Destination="[in_config(&quot;strFilePathFailed&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="MoveFile_5" Overwrite="False" Path="[in_config(&quot;strFilePathRobot&quot;).ToString + &quot;\&quot; + strRobotFileName]" />
-                                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,317" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,315" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                                     <ui:CommentOut.Body>
-                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,239" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_14">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="Your file type have not excel type" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" IsBodyHtml="False" IsDraft="False" Subject="Robot Error" To="[in_config(&quot;Email&quot;).ToString]">
+                                        <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="Your file type have not excel type" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" IsBodyHtml="False" IsDraft="False" Subject="Robot Error" To="[in_config(&quot;Email&quot;).ToString]">
                                           <ui:SendOutlookMail.Files>
                                             <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                                           </ui:SendOutlookMail.Files>
@@ -356,30 +368,29 @@
             </FlowStep>
           </FlowDecision.True>
           <FlowDecision.False>
-            <FlowStep x:Name="__ReferenceID0">
+            <FlowStep x:Name="__ReferenceID2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">420,317</av:Point>
-                  <av:Size x:Key="ShapeSize">200,68</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">520,317 520,317</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,66</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Path Not Exist" sap:VirtualizedContainerService.HintSize="478,508" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence DisplayName="Path Not Exist" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="436,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Path Not Exist&quot;]" TopMost="True" />
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,317" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,315" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                   <ui:CommentOut.Body>
-                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,239" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_15">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Path not found&quot; + &quot;- Part: &quot; + in_config(&quot;strFilePathInput&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_4" IsBodyHtml="False" IsDraft="False" Subject="Robot Error" To="[in_config(&quot;Email&quot;).ToString]">
+                      <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Path not found&quot; + &quot;- Part: &quot; + in_config(&quot;strFilePathInput&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_4" IsBodyHtml="False" IsDraft="False" Subject="Robot Error" To="[in_config(&quot;Email&quot;).ToString]">
                         <ui:SendOutlookMail.Files>
                           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                         </ui:SendOutlookMail.Files>
@@ -388,17 +399,14 @@
                   </ui:CommentOut.Body>
                 </ui:CommentOut>
               </Sequence>
-              <FlowStep.Next>
-                <x:Reference>__ReferenceID0</x:Reference>
-              </FlowStep.Next>
             </FlowStep>
           </FlowDecision.False>
         </FlowDecision>
       </FlowStep.Next>
     </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
-    <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
   </Flowchart>
 </Activity>

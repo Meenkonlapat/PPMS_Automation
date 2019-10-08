@@ -83,7 +83,7 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          <av:Point x:Key="ShapeLocation">262,476.5</av:Point>
+          <av:Point x:Key="ShapeLocation">221.5,466.5</av:Point>
           <av:Size x:Key="ShapeSize">77,87</av:Size>
           <x:String x:Key="FalseLabel">Still have file</x:String>
           <x:String x:Key="TrueLabel">Not have file</x:String>
@@ -93,7 +93,7 @@
     <FlowStep>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,409</av:Point>
+          <av:Point x:Key="ShapeLocation">170,409</av:Point>
           <av:Size x:Key="ShapeSize">200,22</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">300,409 300,359</av:PointCollection>
         </scg:Dictionary>
@@ -103,11 +103,11 @@
     <FlowStep x:Name="__ReferenceID0">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">170,334.5</av:Point>
+          <av:Point x:Key="ShapeLocation">160,324.5</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke MainWork workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="MainWork.xaml">
+      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke MainWork workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="MainWork.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">[config]</InArgument>
           <InArgument x:TypeArguments="scg:IList(x:String)" x:Key="ListSOnumber">[ListSOnumber]</InArgument>
@@ -119,10 +119,10 @@
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">167,227</av:Point>
           <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">267,278 267,308 270,308 270,334.5</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">267,278 267,308 260,308 260,324.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Recieve Data Workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Excel\Receieve Data.xaml">
+      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Recieve Data Workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Excel\Receieve Data.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">[config]</InArgument>
           <OutArgument x:TypeArguments="scg:List(x:String)" x:Key="ListSOnumber">[ListSOnumber]</OutArgument>

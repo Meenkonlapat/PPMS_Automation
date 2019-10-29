@@ -128,6 +128,7 @@
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config">[in_config]</InArgument>
                       <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="ListSOnumber">[ListSOnumber]</InOutArgument>
                       <InArgument x:TypeArguments="sd:DataTable" x:Key="LogDT">[LogDT]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="textNotify" />
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </FlowStep>
@@ -148,7 +149,6 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="436,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Path Not Exist&quot;]" TopMost="True" />
                 <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,315" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_15">
